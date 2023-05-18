@@ -1,10 +1,7 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -21,5 +18,7 @@ public class Preferencias {
 
     private String TP_PREFERENCIA;
 
-    // foreign key de id_usuario
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 }

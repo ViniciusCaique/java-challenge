@@ -1,10 +1,9 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +19,7 @@ public class Agencia {
     private String NM_AGENCIA;
 
     private String SG_AGENCIA;
+
+    @OneToMany(mappedBy = "agencia")
+    private List<Pacotes> pacotes;
 }

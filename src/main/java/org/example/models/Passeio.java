@@ -21,7 +21,8 @@ public class Passeio {
 
     private String DS_PASSEIO;
 
-    // foreign key do id_destino
-
+    @ManyToOne
+    @JoinColumn(name = "id_destino")
+    private Destino destino;
     
 }

@@ -19,6 +19,8 @@ public class Caracteristicas {
     private String NM_CARACTERISTICA;
 
     private String TP_CARACTERISTICA;
-    
-    // foreign key do id_destino
+
+    @ManyToOne
+    @JoinColumn(name = "id_destino")
+    private Destino destino;
 }

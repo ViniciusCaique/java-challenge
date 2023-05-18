@@ -1,10 +1,10 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +22,16 @@ public class Destino {
     private String DS_PONTOS_TURISTICOS;
 
     private String SG_PAIS;
+
+    @OneToMany(mappedBy = "destino")
+    private List<Viagem> viagens;
+
+    @OneToMany(mappedBy = "destino")
+    private List<Pacotes> pacotes;
+
+    @OneToMany(mappedBy = "destino")
+    private List<Caracteristicas> caracteristicas;
+
+    @OneToMany(mappedBy = "destino")
+    private List<Passeio> passeios;
 }

@@ -3,10 +3,7 @@ package org.example.models;
 import java.time.LocalDate;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -26,10 +23,12 @@ public class Viagem {
     private LocalDate DT_FIM;
 
 
-    // foreign key de id_usuario
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
-    // foreign key de id_destino
+    @ManyToOne
+    @JoinColumn(name = "id_destino")
+    private Destino destino;
 
-
-    
 }

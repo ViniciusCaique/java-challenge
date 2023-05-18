@@ -1,10 +1,8 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 
 @Getter
 @Setter
@@ -24,7 +22,12 @@ public class Pacotes {
     private String DS_PACOTE;
 
 
-    // foreign key de id agencia 
-    // foreign key de id_destino 
+    @ManyToOne
+    @JoinColumn(name = "id_destino")
+    private Destino destino;
+
+    @ManyToOne
+    @JoinColumn(name = "id_agencia")
+    private Agencia agencia;
 
 }

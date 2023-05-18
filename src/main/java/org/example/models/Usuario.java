@@ -1,10 +1,11 @@
 package org.example.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +23,11 @@ public class Usuario {
     private String NM_EMAIL;
 
     private String NM_SENHA;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Preferencias> preferencias;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Viagem> viagens;
 
 }
