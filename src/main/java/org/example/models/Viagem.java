@@ -22,7 +22,6 @@ public class Viagem {
 
     private LocalDate DT_FIM;
 
-
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;

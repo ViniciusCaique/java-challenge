@@ -1,26 +1,26 @@
 package org.example.controllers;
 
 import jakarta.persistence.EntityManager;
-import org.example.models.Usuario;
+import org.example.models.Viagem;
 
-public class UsuarioController {
+public class ViagemController {
 
     private EntityManager entityManager;
 
-    public UsuarioController(EntityManager entityManager) { this.entityManager = entityManager; }
+    public ViagemController(EntityManager entityManager) { this.entityManager = entityManager; }
 
-    public Usuario findUsuarioById(int id) {
-        Usuario usuario = entityManager.find(Usuario.class, id);
-        if(usuario == null){
+    public Viagem findViagemById(int id) {
+        Viagem viagem = entityManager.find(Viagem.class, id);
+        if(viagem == null){
             return null;
         }
-        return usuario;
+        return viagem;
     }
 
-    public void insertUsuario(Usuario usuario) {
+    public void insertViagem(Viagem viagem) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(usuario);
+            entityManager.persist(viagem);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
@@ -28,10 +28,10 @@ public class UsuarioController {
         }
     }
 
-    public void updateUsuario(Usuario usuario) {
+    public void updateViagem(Viagem viagem) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(usuario);
+            entityManager.merge(viagem);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
@@ -39,12 +39,12 @@ public class UsuarioController {
         }
     }
 
-    public void deleteUsuarioById(int id) {
+    public void deleteViagemById(int id) {
         try{
             entityManager.getTransaction().begin();
-            Usuario usuario = entityManager.find(Usuario.class, id);
-            if(usuario != null) {
-                entityManager.remove(usuario);
+            Viagem viagem = entityManager.find(Viagem.class, id);
+            if(viagem != null) {
+                entityManager.remove(viagem);
             }
             entityManager.getTransaction().commit();
         } catch (Exception e) {

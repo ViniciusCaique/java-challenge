@@ -1,26 +1,26 @@
 package org.example.controllers;
 
 import jakarta.persistence.EntityManager;
-import org.example.models.Usuario;
+import org.example.models.Preferencias;
 
-public class UsuarioController {
+public class PreferenciaController {
 
     private EntityManager entityManager;
 
-    public UsuarioController(EntityManager entityManager) { this.entityManager = entityManager; }
+    public PreferenciaController(EntityManager entityManager) { this.entityManager = entityManager; }
 
-    public Usuario findUsuarioById(int id) {
-        Usuario usuario = entityManager.find(Usuario.class, id);
-        if(usuario == null){
+    public Preferencias findPreferenciaById(int id) {
+        Preferencias preferencias = entityManager.find(Preferencias.class, id);
+        if(preferencias == null){
             return null;
         }
-        return usuario;
+        return preferencias;
     }
 
-    public void insertUsuario(Usuario usuario) {
+    public void insertPreferencias(Preferencias preferencias) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(usuario);
+            entityManager.persist(preferencias);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
@@ -28,10 +28,10 @@ public class UsuarioController {
         }
     }
 
-    public void updateUsuario(Usuario usuario) {
+    public void updatePreferencias(Preferencias preferencias) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(usuario);
+            entityManager.merge(preferencias);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
@@ -39,12 +39,12 @@ public class UsuarioController {
         }
     }
 
-    public void deleteUsuarioById(int id) {
+    public void deletePreferenciasById(int id) {
         try{
             entityManager.getTransaction().begin();
-            Usuario usuario = entityManager.find(Usuario.class, id);
-            if(usuario != null) {
-                entityManager.remove(usuario);
+            Preferencias preferencias = entityManager.find(Preferencias.class, id);
+            if(preferencias != null) {
+                entityManager.remove(preferencias);
             }
             entityManager.getTransaction().commit();
         } catch (Exception e) {

@@ -18,6 +18,8 @@ public class Preferencias {
 
     private String TP_PREFERENCIA;
 
+    private String DS_PREFERENCIA;
+
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
